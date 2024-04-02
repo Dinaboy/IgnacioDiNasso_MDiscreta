@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número en binario: ");
+        String binarioStr = scanner.nextLine();
+
+        // Convertir a decimal
+        int decimal = Integer.parseInt(binarioStr, 2);
+        System.out.println("Decimal: " + decimal);
+
+        // Convertir a octal
+        int octalInt = Integer.parseInt(binarioStr, 2);
+        String octal = Integer.toOctalString(octalInt);
+        System.out.println("Octal: " + octal);
+
+        // Convertir a hexadecimal
+        int hexadecimalInt = Integer.parseInt(binarioStr, 2);
+        String hexadecimal = Integer.toHexString(hexadecimalInt);
+        System.out.println("Hexadecimal: " + hexadecimal);
+    }
+}
