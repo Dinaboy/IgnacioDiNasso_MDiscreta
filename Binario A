@@ -3,21 +3,24 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese un número en binario: ");
+        System.out.print("Ingrese un número en binario de 16 bits: ");
         String binarioStr = scanner.nextLine();
 
-        // Convertir a decimal
-        int decimal = Integer.parseInt(binarioStr, 2);
-        System.out.println("Decimal: " + decimal);
+        // Verificar que el número ingresado tenga exactamente 16 bits y sea binario
+        if (binarioStr.length() == 16 && binarioStr.matches("[01]+")) {
+            // Convertir a decimal
+            int decimal = Integer.parseInt(binarioStr, 2);
+            System.out.println("Decimal: " + decimal);
 
-        // Convertir a octal
-        int octalInt = Integer.parseInt(binarioStr, 2);
-        String octal = Integer.toOctalString(octalInt);
-        System.out.println("Octal: " + octal);
+            // Convertir a octal
+            String octal = Integer.toOctalString(decimal);
+            System.out.println("Octal: " + octal);
 
-        // Convertir a hexadecimal
-        int hexadecimalInt = Integer.parseInt(binarioStr, 2);
-        String hexadecimal = Integer.toHexString(hexadecimalInt);
-        System.out.println("Hexadecimal: " + hexadecimal);
+            // Convertir a hexadecimal
+            String hexadecimal = Integer.toHexString(decimal);
+            System.out.println("Hexadecimal: " + hexadecimal);
+        } else {
+            System.out.println("Error: Debe ingresar un número binario de exactamente 16 bits.");
+        }
     }
 }
